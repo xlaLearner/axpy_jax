@@ -1,0 +1,2 @@
+/tmp/tmpdm81cv9i/wheel/platlib/axpy_jax/./axpy_cpu.cpython-311-x86_64-linux-gnu.so
+/tmp/tmpdm81cv9i/wheel/platlib/axpy_jax/./axpy_gpu.cpython-311-x86_64-linux-gnu.so

@@ -1,0 +1,6 @@
+# ninja log v5
+1	1107	1724231836855156726	CMakeFiles/axpy_cpu.dir/lib/axpy_cpu.cc.o	8aabde8fd87b2d07
+0	1049	1724229588835943492	CMakeFiles/axpy_gpu.dir/lib/axpy_gpu.cc.o	e2dc69f55d230428
+1	769	1724231878265155857	CMakeFiles/axpy_gpu.dir/lib/axpy_gpu_kernel.cc.cu.o	37e4e782a59bc0df
+1	1031	1724231878525155856	axpy_cpu.cpython-311-x86_64-linux-gnu.so	65cb6163967f18a1
+769	1754	1724231879255155855	axpy_gpu.cpython-311-x86_64-linux-gnu.so	7f36efe051478700

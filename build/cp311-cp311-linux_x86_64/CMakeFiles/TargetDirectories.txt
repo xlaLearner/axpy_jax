@@ -1,0 +1,8 @@
+/home/sujinghan/make_custom_test/my_custom_call/build/cp311-cp311-linux_x86_64/CMakeFiles/axpy_cpu.dir
+/home/sujinghan/make_custom_test/my_custom_call/build/cp311-cp311-linux_x86_64/CMakeFiles/axpy_gpu.dir
+/home/sujinghan/make_custom_test/my_custom_call/build/cp311-cp311-linux_x86_64/CMakeFiles/edit_cache.dir
+/home/sujinghan/make_custom_test/my_custom_call/build/cp311-cp311-linux_x86_64/CMakeFiles/rebuild_cache.dir
+/home/sujinghan/make_custom_test/my_custom_call/build/cp311-cp311-linux_x86_64/CMakeFiles/list_install_components.dir
+/home/sujinghan/make_custom_test/my_custom_call/build/cp311-cp311-linux_x86_64/CMakeFiles/install.dir
+/home/sujinghan/make_custom_test/my_custom_call/build/cp311-cp311-linux_x86_64/CMakeFiles/install/local.dir
+/home/sujinghan/make_custom_test/my_custom_call/build/cp311-cp311-linux_x86_64/CMakeFiles/install/strip.dir

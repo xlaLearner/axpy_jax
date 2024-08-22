@@ -20,7 +20,7 @@ pybind11::dict Registrations() {
 PYBIND11_MODULE(axpy_gpu, m) {
     m.def("registrations", &Registrations);
     m.def("build_axpy_descriptor",
-            [](std::int64_t size) { return PackDescriptor(AxpyDescriptor{size}); })
+            [](std::int64_t size) { return PackDescriptor(AxpyDescriptor{size}); });
 }
 
 }

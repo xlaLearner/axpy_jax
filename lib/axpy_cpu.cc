@@ -10,8 +10,8 @@ using namespace axpy_jax;
 
 namespace {
 
-template template<T>
-void cpu_axpy(void* out_tuple, void** in) {
+template <typename T>
+void cpu_axpy(void *out_tuple, const void **in) {
     //分离出输入和输出
     const std::int64_t size = *reinterpret_cast<const std::int64_t *>(in[0]); 
     const T *a = reinterpret_cast<const T *>(in[1]);
@@ -19,10 +19,10 @@ void cpu_axpy(void* out_tuple, void** in) {
     const T *y = reinterpret_cast<const T *>(in[3]);
 
     //由于只有一个输出，则只需要将out_tuple转换即可，而不需要像教程那样转换为2重指针
-    const T *result = reinterpret_cast<T *>(out_tuple)
+    T *result = reinterpret_cast<T *>(out_tuple);
 
     for (std::int64_t i = 0; i < size; ++i){
-        compute_axpy<T>(a + i, x + i, y+ i, result + i);
+        compute_axpy<T>(a[i], x[i], y[i], result + i);
     }
     // compute_axpy(a, size, x, y, result);
 }

@@ -10,11 +10,11 @@ namespace axpy_jax {
 
 namespace {
 
-template <template T>
-__global__ void axpy_kernel(const std::int64_t a, const T *x, const T *y, const T *result) {
+template <typename T>
+__global__ void axpy_kernel(const T *a, const T *x, const T *y, T *result, std::int64_t size) {
     for (std::int64_t idx = blockIdx.x * blockDim.x + threadIdx.x; idx < size;
        idx += blockDim.x * gridDim.x) {
-        compute_axpy<T>(a, x, y, result);
+        compute_axpy<T>(a[idx], x[idx], y[idx], result + idx);
     }
 }
 
@@ -25,22 +25,22 @@ void ThrowIfError(cudaError_t error) {
 }
 
 template <typename T>
-inline void apply_kepler(cudaStream_t stream, void **buffers, const char *opaque,
+inline void apply_axpy(cudaStream_t stream, void **buffers, const char *opaque,
                          std::size_t opaque_len) {
-  const KeplerDescriptor &d = *UnpackDescriptor<AxpyDescriptor>(opaque, opaque_len);
+  const AxpyDescriptor &d = *UnpackDescriptor<AxpyDescriptor>(opaque, opaque_len);
   const std::int64_t size = d.size;
 
-  const std::int64_t a = *reinterpret_cast<const T>(buffers[0]);
+  const T *a = reinterpret_cast<const T *>(buffers[0]);
   const T *x = reinterpret_cast<const T *>(buffers[1]);
   const T *y = reinterpret_cast<const T *>(buffers[2]);
 
-  const T *result = reinterpret_cast<T *>(buffers[3]);
+  T *result = reinterpret_cast<T *>(buffers[3]);
 
   // 可以考虑如何设置这些使得分配的软件更适合算法
   const int block_dim = 128;
   const int grid_dim = std::min<int>(1024, (size + block_dim - 1) / block_dim);
   axpy_kernel<T>
-      <<<grid_dim, block_dim, 0, stream>>>(a, x, y, result);
+      <<<grid_dim, block_dim, 0, stream>>>(a, x, y, result, size);
 
   ThrowIfError(cudaGetLastError());
 }

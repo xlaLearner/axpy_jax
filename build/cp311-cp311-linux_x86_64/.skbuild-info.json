@@ -1,0 +1,8 @@
+{
+  "source_dir": "/home/sujinghan/make_custom_test/my_custom_call",
+  "build_dir": "/home/sujinghan/make_custom_test/my_custom_call/build/cp311-cp311-linux_x86_64",
+  "cmake_path": "/usr/bin/cmake",
+  "skbuild_path": "/tmp/pip-build-env-c36x53yb/overlay/lib/python3.11/site-packages/scikit_build_core",
+  "skbuild_version": "0.10.4",
+  "python_executable": "/home/sujinghan/anaconda3/envs/jax-gpu/bin/python"
+}

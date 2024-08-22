@@ -9,7 +9,7 @@
 
 #include <pybind11/pybind11.h>
 
-#include "kernel_helpers.h"
+#include "axpy_gpu_kernel_helpers.h"
 
 namespace axpy_jax {
 

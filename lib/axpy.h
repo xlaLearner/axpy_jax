@@ -19,8 +19,8 @@ namespace axpy_jax {
 
 // axpy需要3个输入,1个输出
 template <typename T>
-SJH_JAX_INLINE_OR_DEVICE void compute_axpy(T* a, T* x, T* y, T* result) {
-  result = (*a) * (*x) + *y
+SJH_JAX_INLINE_OR_DEVICE void compute_axpy(const T& a, const T& x, const T& y, T* result) {
+  *result = a * x + y;
 }
 
 }  // namespace axpy_jax
